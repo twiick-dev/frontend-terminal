@@ -7,21 +7,45 @@
     <link rel="stylesheet" href="./css/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300&family=Lato:wght@100;300;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300&family=Lato:wght@100;300;400;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <section id="terminal">
-        <div id="terminal-content"></div>
-        <div class="instruction">
-            <label for="terminal-command" class="terminal-path">
-                <p class="terminal-user">twiick-dev@twiick</p>
-                <p>:</p>
-                <p class="terminal-folder">~</p>
-                <p>$</p>
-            </label>
-            <input type="text" id="terminal-command">
+    <div class="window-border">
+        <div class="window-bar">
+            <div class="window-tab">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/UbuntuCoF.svg/2048px-UbuntuCoF.svg.png" alt="Ubuntu icon">
+                <p id="terminal-tab-name">twiick-dev@twiick: ~</p>
+            </div>
+            <div class="window-buttons">
+                <button>🗕</button>
+                <button>🗖</button>
+                <button>✕</button>
+            </div>
         </div>
-    </section>
+        <label for="terminal-command" id="terminal">
+            <div id="terminal-content">
+                <p class="help"> # Wellcome to Twiick's terminal!</p>
+                <p>&nbsp</p>
+                <p># This is a place created for you to get to know more about</p>
+                <p># Developer: Brahyam Luna (Twiick)</p>
+                <p># Role: Interactive Designer & Frontend Developer</p>
+                <p>&nbsp</p>
+                <p># Let's code, design, and create together!</p>
+                <p>&nbsp</p>
+                <p class="executable"># Type 'help' for a list of available commands.</p>
+                <p>&nbsp</p>
+            </div>
+            <div class="instruction" id="command-line">
+                <div class="terminal-path">
+                    <p class="terminal-user">twiick-dev@twiick</p>
+                    <p>:</p>
+                    <p class="terminal-folder">~</p>
+                    <p>$</p>
+                </div>
+                <input type="text" id="terminal-command">
+            </div>
+        </label>
+    </div>
     <script src="./js/main.js"></script>
 </body>
 </html>
