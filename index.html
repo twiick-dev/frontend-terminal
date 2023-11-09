@@ -10,11 +10,13 @@
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300&family=Lato:wght@100;300;400;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="window-border">
+    <div class="window-border dark-purple">
         <div class="window-bar">
-            <div class="window-tab">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/UbuntuCoF.svg/2048px-UbuntuCoF.svg.png" alt="Ubuntu icon">
-                <p id="terminal-tab-name">twiick-dev@twiick: ~</p>
+            <div class="window-tabs">
+                <div class="window-tab active">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/UbuntuCoF.svg/2048px-UbuntuCoF.svg.png" alt="Ubuntu icon">
+                    <p id="terminal-tab-name">twiick-dev@twiick: ~</p>
+                </div>
             </div>
             <div class="window-buttons">
                 <button>🗕</button>
@@ -22,7 +24,7 @@
                 <button>✕</button>
             </div>
         </div>
-        <label for="terminal-command" id="terminal">
+        <label for="terminal-command" id="terminal" class="window-app">
             <div id="terminal-content">
                 <p class="help"> # Wellcome to Twiick's terminal!</p>
                 <p>&nbsp</p>

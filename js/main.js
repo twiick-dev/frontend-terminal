@@ -7,6 +7,18 @@ let path='~'
 
 let terminalFolder=document.querySelector('.terminal-folder')
 
+let chromeTab1=document.querySelector('#chrome-tab-1')
+let chromeTab2=document.querySelector('#chrome-tab-2')
+let chromeTab1Name=document.querySelector('#chrome-tab-1-name')
+let chromeTab2Name=document.querySelector('#chrome-tab-2-name')
+let chromeTab1Icon=document.querySelector('#chrome-tab-1-icon')
+let chromeTab2Icon=document.querySelector('#chrome-tab-2-icon')
+let chromeInputFinder=document.querySelector('#chrome-input-finder')
+
+let chromeHome=document.querySelector('.chrome-home')
+let chromeInstagram=document.querySelector('.chrome-instagram')
+let chromeError=document.querySelector('.chrome-error')
+/*
 terminalCommand.addEventListener('keyup', (event)=>{
     if (event.key === 'Enter') {
         terminalContend.innerHTML=`${terminalContend.innerHTML}<div class="instruction"><div class="terminal-path"><p class="terminal-user">twiick-dev@twiick</p><p>:</p><p class="terminal-folder">${path}</p><p>$ ${terminalCommand.value}</p></div></div>`
@@ -76,3 +88,71 @@ terminalCommand.addEventListener('keyup', (event)=>{
         terminalContend.innerHTML=`${terminalContend.innerHTML}<div class="instruction"><div class="terminal-column"><p>&nbsp</p><p><span class="executable">${executableName}</span> is running in a new tab:</p><p>- Network: <span class="external-link">${executableLink}</span></p><p>&nbsp</p></div></div>`
     }
 });
+*/
+
+chromeTab1.addEventListener('click',()=>{
+    chromeTab1.classList.add('active')
+    chromeTab2.classList.remove('active')
+    showPage(chromeTab1Name)
+    
+})
+chromeTab2.addEventListener('click',()=>{
+    chromeTab2.classList.add('active')
+    chromeTab1.classList.remove('active')
+    showPage(chromeTab2Name)
+})
+
+function showPage(pageToShowName){
+    if(pageToShowName.innerText=='Google'){
+        renderPage(chromeHome)
+    }
+    else if(pageToShowName.innerText=='Instagram'){
+        renderPage(chromeInstagram)
+    }
+    else{
+        renderPage(chromeError)
+    }
+}
+
+chromeInputFinder.addEventListener('keyup', (event)=>{
+    if (event.key === 'Enter') {
+        if(chromeInputFinder.value=='Google'||chromeInputFinder.value=='google'||chromeInputFinder.value=='https://google.com'||chromeInputFinder.value=='google.com'||chromeInputFinder.value=='www.google.com'){
+            showChromePage('Google', 'https://upload.wikimedia.org/wikipedia/commons/0/09/IOS_Google_icon.png', 'https://google.com')
+        }
+        else if(chromeInputFinder.value=='Instagram'||chromeInputFinder.value=='instagram'||chromeInputFinder.value=='https://instagram.com'||chromeInputFinder.value=='instagram.com'||chromeInputFinder.value=='www.instagram.com'){
+            showChromePage('Instagram', 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/2048px-Instagram_logo_2016.svg.png', 'https://instagram.com')
+        }
+        else{
+            showChromePage(chromeInputFinder.value, 'https://cdn3.iconfinder.com/data/icons/faticons/32/globe-01-512.png', chromeInputFinder.value)
+        }
+    }
+})
+
+function showChromePage(pageName, pageIcon, pageUrl){
+    if(chromeTab1.classList.contains('active')){
+        chromeInputFinder.value=pageUrl
+        chromeTab1Icon.src=pageIcon
+        chromeTab1Name.innerText=pageName
+    }
+    else{
+        chromeInputFinder.value=pageUrl
+        chromeTab2Icon.src=pageIcon
+        chromeTab2Name.innerText=pageName
+    }
+    if(pageName=='Google'){
+        renderPage(chromeHome)
+    }
+    else if(pageName=='Instagram'){
+        renderPage(chromeInstagram)
+    }
+    else{
+        renderPage(chromeError)
+    }
+}
+
+function renderPage(pageToRender){
+    chromeHome.style.display='none'
+    chromeInstagram.style.display='none'
+    chromeError.style.display='none'
+    pageToRender.style.display='flex'
+}

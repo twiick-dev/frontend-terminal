@@ -11,44 +11,72 @@ body{
     place-items: center;
 }
 .window-border{
-    background-color: rgb(51, 51, 51);
-    padding-top: 40px;
+    background-color: rgb(196, 194, 194);
+    padding-top: 36px;
     position: relative;
-    border: solid 1px rgb(68, 68, 68);
+    border: solid 1px rgb(196, 194, 194);
     border-radius: 8px;
+    box-shadow: 0 10px 30px #00000080;
+}
+.window-border.black{
+    background-color: rgb(33, 31, 40);
+    border: solid 1px rgb(33, 31, 40);
+}
+.window-border.dark-purple{
+    background-color: rgb(51, 51, 51);
+    border: solid 1px rgb(68, 68, 68);
 }
 .window-bar{
     width: 100%;
-    height: 40px;
+    height: 36px;
     display: flex;
     justify-content: space-between;
     position: absolute;
     top: 0;
     left: 0;
 }
-.window-tab{
-    background-color: rgb(46, 17, 35);
-    width: 250px;
-    padding: 8px;
+.window-tabs{
     display: flex;
-    align-items: center;
-    gap: 8px;
     position: absolute;
     bottom: 0;
     left: 10px;
+}
+.window-tab{
+    width: 250px;
+    padding: 7px 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
     border-radius: 8px 8px 0 0 ;
+    transition: .2s;
+}
+.window-tab.active, .window-tab:hover{
+    background-color: rgb(233, 233, 233);
+    transition: .2s;
+}
+.black .window-tab.active, .black .window-tab:hover{
+    background-color: rgb(56, 51, 72);
+}
+.dark-purple .window-tab.active, .dark-purple .window-tab:hover{
+    background-color: rgb(46, 17, 35);
 }
 .window-tab img{
     width: 18px;
     height: auto;
 }
 .window-tab p{
-    color: white;
+    color: black;
     font-family: 'Lato', sans-serif;
     font-size: 12px;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+}
+.black .window-tab p{
+    color: white;
+}
+.dark-purple .window-tab p{
+    color: white;
 }
 .window-buttons{
     display: flex;
@@ -59,12 +87,15 @@ body{
 .window-buttons button{
     background: none;
     width: 50px;
-    height: 40px;
-    color: rgb(147, 147, 147);
+    height: 36px;
+    color: black;
     font-size: 14px;
     font-weight: 300;
     border: none;
     transition: .2s;
+}
+.black .window-buttons button, .dark-purple .window-buttons button{
+    color: rgb(147, 147, 147);
 }
 .window-buttons button:nth-child(3){
     border-radius: 0 8px 0 0;
@@ -78,8 +109,7 @@ body{
     background-color: #cb0000;
     transition: .2s;
 }
-#terminal{
-    background-color: rgb(46, 17, 35);
+.window-app{
     width: 700px;
     height: 400px;
     padding: 20px 18px 20px 10px;
@@ -88,6 +118,9 @@ body{
     position: relative;
     overflow-y: scroll;
     border-radius: 0 0 8px 8px;
+}
+#terminal{
+    background-color: rgb(46, 17, 35);
 }
 #terminal::-webkit-scrollbar {
     width: 8px;
@@ -150,8 +183,166 @@ body{
 }
 #command-line input{
     background: none;
-    color: white;
+    color: rgb(255, 255, 255);
     font-size: 16px;
     border: none;
     outline: none;
+}
+.navigation-bar{
+    height: 30px;
+    padding: 2px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.navigation-buttons, .navigation-finder, .navigation-finder label, .navigation-options{
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+.navigation-buttons{
+    position: absolute;
+    top: 2px;
+    left: 20px;
+}
+.navigation-finder{
+    position: absolute;
+    top: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.navigation-options{
+    position: absolute;
+    top: 2px;
+    right: 20px;
+}
+.navigation-bar button{
+    background: none;
+    width: 24px;
+    height: 24px;
+
+    display: grid;
+    place-items: center;
+    color: gray;
+    border: none;
+    transition: .2s;
+}
+.material-symbols-outlined, .material-icons{
+    font-size: 20px!important;
+}
+.navigation-bar button:hover, .navigation-bar label:hover{
+    background-color: #FFFFFF30;
+    transition: .2s;
+}
+.navigation-finder input{
+    background: none;
+    width: 300px;
+    padding: 4px 8px;
+    color: white;
+    font-family: 'Lato', sans-serif;
+    border: solid 1px transparent;
+    border-radius: 4px;
+    outline: none;
+    transition: .2s;
+}
+.navigation-finder input:focus{
+    border: solid 1px #FFFFFF50;
+    transition: .2s;
+}
+.navigation-finder label input{
+    display: none;
+}
+.navigation-finder label input ~ span{
+    color: gray;
+    font-size: 20px;
+}
+.navigation-finder label input:checked ~ span{
+    color: rgb(255, 204, 0);
+}
+#chrome{
+    background-color: rgb(255, 255, 255);
+}
+.chrome-home, .chrome-instagram, .chrome-error{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+.chrome-home{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+.chrome-instagram{
+    display: none;
+}
+.chrome-error{
+    display: none;
+}
+.chrome-logo{
+    display: flex;
+}
+.chrome-logo span{
+    font-family: 'Poppins', sans-serif;
+    font-size: 52px;
+    font-weight: 500;
+}
+.chrome-logo span:nth-child(1){
+    color: rgb(0, 106, 255);
+}
+.chrome-logo span:nth-child(2){
+    color: rgb(193, 44, 44);
+}
+.chrome-logo span:nth-child(3){
+    color: rgb(255, 204, 0);
+}
+.chrome-logo span:nth-child(4){
+    color: rgb(0, 106, 255);
+}
+.chrome-logo span:nth-child(5){
+    color: rgb(49, 159, 56);
+}
+.chrome-logo span:nth-child(6){
+    color: rgb(193, 44, 44);
+}
+#google-home-label{
+    width: 80%;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border: solid 1px rgb(226, 226, 226);
+    border-radius: 20px;
+}
+#google-home-label:hover{
+    box-shadow: 0 0px 5px rgb(198, 198, 198);
+}
+#google-home-label span{
+    color: rgb(60, 60, 60);
+    font-size: 14px;
+}
+#google-home-label input{
+    background: none;
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    border: none;
+    outline: none;
+}
+.google-home-button{
+    background: rgb(245, 245, 245);
+    padding: 10px 20px;
+    font-family: 'Lato', sans-serif;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.google-home-button:hover{
+    box-shadow: 0 0px 10px rgb(198, 198, 198);
 }
