@@ -17,7 +17,15 @@ let chromeInputFinder=document.querySelector('#chrome-input-finder')
 
 let chromeHome=document.querySelector('.chrome-home')
 let chromeInstagram=document.querySelector('.chrome-instagram')
+let chromeYoutube=document.querySelector('.chrome-youtube')
+let chromeSearch=document.querySelector('.chrome-search')
 let chromeError=document.querySelector('.chrome-error')
+
+let ChromeErrorSiteName=document.querySelector('.error-site-name')
+let ChromeerrorPageName=''
+
+let chromeErrorSearchButton=document.querySelector('.chrome-error-google-search')
+let chromeSearchButton=document.querySelector('#chrome-google-search-button')
 /*
 terminalCommand.addEventListener('keyup', (event)=>{
     if (event.key === 'Enter') {
@@ -104,13 +112,19 @@ chromeTab2.addEventListener('click',()=>{
 
 function showPage(pageToShowName){
     if(pageToShowName.innerText=='Google'){
-        renderPage(chromeHome)
+        renderPage(chromeHome, 'https://google.com')
     }
     else if(pageToShowName.innerText=='Instagram'){
-        renderPage(chromeInstagram)
+        renderPage(chromeInstagram, 'https://instagram.com')
+    }
+    else if(pageToShowName.innerText=='Youtube'){
+        renderPage(chromeYoutube, 'https://youtube.com')
+    }
+    else if(pageToShowName.innerText=='Search'){
+        renderPage(chromeSearch, 'https://google-search.com')
     }
     else{
-        renderPage(chromeError)
+        renderPage(chromeError, `https://${ChromeErrorPageName}.com`)
     }
 }
 
@@ -122,10 +136,25 @@ chromeInputFinder.addEventListener('keyup', (event)=>{
         else if(chromeInputFinder.value=='Instagram'||chromeInputFinder.value=='instagram'||chromeInputFinder.value=='https://instagram.com'||chromeInputFinder.value=='instagram.com'||chromeInputFinder.value=='www.instagram.com'){
             showChromePage('Instagram', 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/2048px-Instagram_logo_2016.svg.png', 'https://instagram.com')
         }
+        else if(chromeInputFinder.value=='Youtube'||chromeInputFinder.value=='youtube'||chromeInputFinder.value=='https://youtube.com'||chromeInputFinder.value=='youtube.com'||chromeInputFinder.value=='www.youtube.com'){
+            showChromePage('Youtube', 'https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png', 'https://youtube.com')
+        }
+        else if(chromeInputFinder.value=='Search'||chromeInputFinder.value=='search'||chromeInputFinder.value=='https://search.com'||chromeInputFinder.value=='search.com'||chromeInputFinder.value=='www.search.com'){
+            showChromePage('Search', 'https://upload.wikimedia.org/wikipedia/commons/0/09/IOS_Google_icon.png', 'https://google search.com')
+        }
         else{
             showChromePage(chromeInputFinder.value, 'https://cdn3.iconfinder.com/data/icons/faticons/32/globe-01-512.png', chromeInputFinder.value)
+            ChromeErrorPageName=chromeInputFinder.value
+            ChromeErrorSiteName.innerText=ChromeErrorPageName
         }
     }
+})
+
+chromeSearchButton.addEventListener('click',()=>{
+    showChromePage('Search', 'https://upload.wikimedia.org/wikipedia/commons/0/09/IOS_Google_icon.png', 'https://search.com')
+})
+chromeErrorSearchButton.addEventListener('click',()=>{
+    showChromePage('Search', 'https://upload.wikimedia.org/wikipedia/commons/0/09/IOS_Google_icon.png', 'https://search.com')
 })
 
 function showChromePage(pageName, pageIcon, pageUrl){
@@ -140,19 +169,28 @@ function showChromePage(pageName, pageIcon, pageUrl){
         chromeTab2Name.innerText=pageName
     }
     if(pageName=='Google'){
-        renderPage(chromeHome)
+        renderPage(chromeHome, 'https://google.com')
     }
     else if(pageName=='Instagram'){
-        renderPage(chromeInstagram)
+        renderPage(chromeInstagram, 'https://instagram.com')
+    }
+    else if(pageName=='Youtube'){
+        renderPage(chromeYoutube, 'https://youtube.com')
+    }
+    else if(pageName=='Search'){
+        renderPage(chromeSearch, 'https://search.com')
     }
     else{
-        renderPage(chromeError)
+        renderPage(chromeError, pageName)
     }
 }
 
-function renderPage(pageToRender){
+function renderPage(pageToRender, pageLink){
     chromeHome.style.display='none'
     chromeInstagram.style.display='none'
+    chromeYoutube.style.display='none'
+    chromeSearch.style.display='none'
     chromeError.style.display='none'
     pageToRender.style.display='flex'
+    chromeInputFinder.value=pageLink
 }

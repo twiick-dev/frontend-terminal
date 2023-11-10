@@ -228,7 +228,7 @@ body{
     transition: .2s;
 }
 .material-symbols-outlined, .material-icons{
-    font-size: 20px!important;
+    font-size: 20px
 }
 .navigation-bar button:hover, .navigation-bar label:hover{
     background-color: #FFFFFF30;
@@ -260,16 +260,12 @@ body{
     color: rgb(255, 204, 0);
 }
 #chrome{
+    padding: 0;
     background-color: rgb(255, 255, 255);
 }
-.chrome-home, .chrome-instagram, .chrome-error{
+.chrome-home{
     width: 100%;
     height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 12px;
 }
 .chrome-home{
     width: 100%;
@@ -283,7 +279,7 @@ body{
 .chrome-instagram{
     display: none;
 }
-.chrome-error{
+.chrome-youtube{
     display: none;
 }
 .chrome-logo{
@@ -345,4 +341,196 @@ body{
 }
 .google-home-button:hover{
     box-shadow: 0 0px 10px rgb(198, 198, 198);
+}
+.chrome-error{
+    width: 100%;
+    height: 100%;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+.chrome-error-message{
+    width: 400px;
+    position: absolute;
+    top: 70px;
+}
+.chrome-error-message img{
+    width: 72px;
+}
+.chrome-error-message p, .chrome-error-message p span{
+    font-family: 'Lato', sans-serif;
+}
+.chrome-error-message p:nth-child(2){
+    margin-bottom: 8px;
+    font-size: 20px;
+    font-weight: 700;
+}
+.chrome-error-message p:nth-child(3){
+    margin-bottom: 4px;
+    font-size: 16px;
+}
+.chrome-error-message p:nth-child(4){
+    margin-bottom: 8px;
+    font-size: 12px;
+    font-weight: 300;
+}
+.chrome-error-message p span{
+    font-weight: 700;
+}
+.chrome-error-message button{
+    background: none;
+    background-color: rgb(103, 135, 205);
+    padding: 4px 12px;
+    color: white;
+    font-family: 'Lato', sans-serif;
+    font-size: 12px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: .2s;
+}
+.chrome-error-message button:hover{
+    background-color: rgb(61, 86, 140);
+    transition: .2s;
+}
+.chrome-search{
+    width: 100%;
+    height: 100%;
+    display: none;
+    flex-direction: column;
+}
+.chrome-search-finder{
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.chrome-search-finder .logo{
+    color: rgb(93, 93, 93);
+    font-family: 'Poppins', sans-serif;
+    font-size: 28px;
+}
+.chrome-search-finder label{
+    background-color: #f0f0f0;
+    width: 50%;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+    transition: .2s;
+}
+.chrome-search-finder label:hover, .chrome-search-finder label:focus-within{
+    box-shadow: 0 0px 5px rgb(198, 198, 198);
+    transition: .2s;
+}
+.chrome-search-finder label input{
+    background: none;
+    width: 100%;
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    border: none;
+    outline: none;
+}
+.chrome-search-finder label span{
+    background: none;
+    font-size: 18px;
+    border: none;
+}
+.chrome-search-filter{
+    padding: 5px 10px;
+    display: flex;
+    gap: 12px;
+    border-bottom: solid 1px rgb(198, 198, 198);
+}
+.chrome-search-filter p{
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+.chrome-search-filter p .material-symbols-outlined{
+    color: rgb(93, 93, 93);
+    font-size: 12px;
+}
+.chrome-search-filter span:nth-child(2){
+    color: rgb(93, 93, 93);
+    font-family: 'Lato', sans-serif;
+    font-size: 10px;
+}
+.chrome-search-content{
+    display: flex;
+    flex-direction: column;
+}
+.chrome-search-content article{
+    padding: 20px;
+    display: flex;
+}
+.chrome-search-element{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.chrome-search-element-tab-data{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.chrome-search-element-tab-data img{
+    width: 20px;
+    height: auto;
+}
+.chrome-search-element-name{
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+}
+.chrome-search-element-link{
+    font-family: 'Lato', sans-serif;
+    font-size: 10px;
+}
+.chrome-search-element-name-large{
+    color: rgb(103, 135, 205);
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+}
+.chrome-search-element-description{
+    width: 500px;
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+}
+.chrome-search-element-tags{
+    width: 500px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.chrome-search-element-tags p{
+    color: rgb(103, 135, 205);
+    font-family: 'Lato', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+}
+.chrome-search-content-site-img{
+    width: 100px;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 4px;
+}
+.chrome-instagram{
+    width: 100%;
+    height: 100%;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.chrome-youtube{
+    width: 100%;
+    height: 100%;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
